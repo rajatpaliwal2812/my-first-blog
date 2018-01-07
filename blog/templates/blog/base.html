@@ -15,8 +15,11 @@
 
  <body>
  	<div class="page-header">
+ 		{% if user.is_authenticated %}
+ 		<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+ 		{% endif %}
  	<h1>
- 		<CENTER><a href="https://www.pythonanywhere.com/user/rajatpaliwal2812/">Rajat Paliwal's Blog</a></CENTER>
+ 		<CENTER><a href="http://rajatpaliwal2812.pythonanywhere.com/">Rajat Paliwal's Blog</a></CENTER>
  	</h1>
  </div>
  	<h2>
