@@ -1,39 +1,17 @@
-<html>
- <head>
- 	
- 	<title>
- 		Rajat's Blog
- 	</title>
+{% extends 'blog/base.html' %}
 
- </head>
-
- <body>
- 	<div>
- 	<h1>
- 		<CENTER><a href="https://www.pythonanywhere.com/user/rajatpaliwal2812/">Rajat Paliwal</a></CENTER>
- 	</h1>
- </div>
- 	<h2>
- 		<CENTER><strong>Weekly Blog</strong></CENTER>
- 	</h2>
- 	<div>
- 		<p>
- 			<RT> Published : 4/1/18 </RT>
- 		</p>
- 		
- 	</div>
-
+{% block content %}	
 	{%for post in posts %}
-	<div>
-		<p>published: {{ post.published_date }}</p>
-		<h1><a href="">{{post.title}}</a></h1>
+	<div class="post">
+		
+		<h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+		<div class=date><p><strong>published: {{ post.published_date }}</strong></p></div>
 		<p>{{  post.text |linebreaksbr	}}			</p>
 	</div>
 	{{post}}
 	{% endfor %}
 
-
- 	<strong> <ul>
+<strong> <ul>
  		<li> <a href="/">1st Post </a> </li>
  		<li>
  			<a hreflang="/">2nd Post</a>
@@ -42,18 +20,5 @@
  		<li><a href ="/"> 4th Post</a> </li>
 
  	</ul>
- 	  </strong>
-
-
- 	  <center>
- 	  	<strong>
- 	  		<em>
- 	  			Thank You
-
-
- 	  		</em>
- 	  	</strong>
- 	  </center>
- </body>
-  
-</html>
+ 	  </strong>	
+{% endblock %}
